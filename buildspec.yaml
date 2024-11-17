@@ -17,10 +17,8 @@ phases:
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 615299751974.dkr.ecr.us-east-2.amazonaws.com/samplerepo
       - echo Building Docker image...
       - docker build -t sample-dotnet-app .
-      # Tag the Docker image with the ECR repository URI
       - docker tag sample-dotnet-app:latest 615299751974.dkr.ecr.us-east-2.amazonaws.com/samplerepo
       post_build:
     commands:
-      # Push the Docker image to ECR
       - echo Pushing Docker image to ECR...
       - docker push 615299751974.dkr.ecr.us-east-2.amazonaws.com/samplerepo:latest 

@@ -19,7 +19,6 @@ phases:
       - docker build -t sample-dotnet-app .
       # Tag the Docker image with the ECR repository URI
       - docker tag sample-dotnet-app:latest 615299751974.dkr.ecr.us-east-2.amazonaws.com/samplerepo
-
       post_build:
     commands:
       # Push the Docker image to ECR
